@@ -1,0 +1,3 @@
+select year from ggarmaise.population join ggarmaise.country using (countrykey) where sum(population) 
+= (select max(e) from (select sum(population) from ggarmaise.population 
+join ggarmaise.country using (countrykey)group by year));
